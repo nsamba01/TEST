@@ -672,9 +672,17 @@ def _make_story(doc, store, pages):
     for i, b in enumerate(doc.blocks):
         if b["kind"] != "h1":
             continue
-        nxt = doc.blocks[i + 1] if i + 1 < len(doc.blocks) else None
-        if nxt is not None and nxt["kind"] == "table" and nxt.get("landscape"):
-            land_start.add(i)
+        j = i + 1
+        ok = True
+        while j < len(doc.blocks):
+            nb = doc.blocks[j]
+            if nb["kind"] == "table" and nb.get("landscape"):
+                if ok:
+                    land_start.add(i)
+                break
+            if nb["kind"] not in TEXTY:
+                break
+            j += 1
 
     cur_tpl = ["body"]
     toc_key = {}
