@@ -11,7 +11,7 @@ from openpyxl import load_workbook
 
 import data as T
 
-OUT = "/home/user/LIVRABLES_SUIVI_EVALUATION_2027_2028"
+OUT = "/home/user/TEST/LIVRABLES_SUIVI_EVALUATION_2027_2028"
 FILES = [
     "01_Plan_Suivi_Evaluation_2027_2028.docx",
     "02_Plan_Suivi_Evaluation_2027_2028.pdf",
